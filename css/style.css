@@ -2280,228 +2280,131 @@ section {
         padding: var(--space-12) var(--space-20);
         font-size: var(--font-size-base);
     }
-    /* ===================================
-   FOREST FIT STUDIO - HOVER EFFECTS
-   Dopasowany do rzeczywistej struktury HTML
-   =================================== */
+    
+}/* ========== SEKCJA DIAGNOSTYCZNA ========== */
 
-/* ===== QUESTIONNAIRE CARD ===== */
-.questionnaire-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+.diagnostic-section {
+  background: linear-gradient(135deg, #f5faf9 0%, #f0f7f6 100%);
+  padding: 60px 20px;
+  margin: 60px 0;
 }
 
-.questionnaire-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(33, 128, 141, 0.25) !important;
+.diagnostic-container {
+  max-width: 650px;
+  margin: 0 auto;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  border: 1px solid rgba(33, 128, 141, 0.1);
 }
 
-/* Shimmer effect */
-.questionnaire-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-    pointer-events: none;
-    z-index: 1;
-    border-radius: inherit;
+.diagnostic-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: 24px;
+  line-height: var(--line-height-tight);
 }
 
-.questionnaire-card:hover::before {
-    left: 100%;
+.diagnostic-hook {
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 16px;
+  line-height: var(--line-height-normal);
 }
 
-/* Top border animation */
-.questionnaire-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #218089, #32b8c6, #218089);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-    border-radius: inherit;
+.diagnostic-intro {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  margin-bottom: 20px;
+  line-height: var(--line-height-normal);
 }
 
-.questionnaire-card:hover::after {
-    transform: scaleX(1);
+.diagnostic-stat {
+  background: rgba(33, 128, 141, 0.08);
+  padding: 16px;
+  border-radius: var(--radius-md);
+  margin: 24px 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: var(--line-height-normal);
+  border-left: 4px solid var(--color-primary);
 }
 
-/* ===== CTA BUTTON ===== */
-.cta-button {
-    position: relative;
-    overflow: hidden !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    display: inline-block;
+.diagnostic-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+  text-align: left;
 }
 
-.cta-button:hover {
-    transform: translateY(-3px) !important;
-    box-shadow: 0 12px 30px rgba(33, 128, 141, 0.3) !important;
+.diagnostic-benefits li {
+  padding: 12px 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  border-bottom: 1px solid rgba(94, 82, 64, 0.08);
+  line-height: var(--line-height-normal);
 }
 
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.4s ease, height 0.4s ease;
+.diagnostic-benefits li:last-child {
+  border-bottom: none;
 }
 
-.cta-button:active::before {
-    width: 300px;
-    height: 300px;
+.diagnostic-button {
+  margin: 24px 0;
+  transition: all var(--duration-normal) var(--ease-standard);
 }
 
-/* ===== BENEFITS LIST ===== */
-.benefits-list {
-    transition: all 0.3s ease;
+.diagnostic-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(33, 128, 141, 0.25);
 }
 
-.benefits-list li {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
+.diagnostic-footer {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-top: 20px;
+  line-height: var(--line-height-normal);
 }
 
-.benefits-list li:hover {
-    padding-left: 12px;
-    color: #218089;
-    transform: translateX(4px);
+.diagnostic-footer em {
+  font-style: italic;
+  color: var(--color-text-secondary);
 }
 
-.benefits-list li::before {
-    content: '';
-    position: absolute;
-    left: -8px;
-    top: 50%;
-    width: 4px;
-    height: 4px;
-    background: #218089;
-    border-radius: 50%;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-}
-
-.benefits-list li:hover::before {
-    transform: scaleX(1);
-}
-
-/* ===== HEADINGS ===== */
-.questionnaire-card h2 {
-    transition: color 0.3s ease;
-    color: #1f2121;
-}
-
-.questionnaire-card h3 {
-    transition: color 0.3s ease;
-    color: #1f2121;
-}
-
-.questionnaire-card:hover h2,
-.questionnaire-card:hover h3 {
-    color: #218089;
-}
-
-/* ===== TEXT ===== */
-.intro-text {
-    transition: color 0.3s ease;
-}
-
-.questionnaire-card:hover .intro-text {
-    color: #218089;
-    font-weight: 600;
-}
-
-.subtext {
-    transition: color 0.3s ease;
-}
-
-.questionnaire-card:hover .subtext {
-    color: #777c7c;
-}
-
-/* ===== DISCLAIMER ===== */
-.disclaimer {
-    transition: all 0.3s ease;
-}
-
-.questionnaire-card:hover .disclaimer {
-    color: #218089;
-}
-
-/* ===== GENERAL LINKS ===== */
-a:not(.cta-button) {
-    transition: color 0.3s ease;
-    position: relative;
-}
-
-a:not(.cta-button):hover {
-    color: #218089;
-}
-
-a:not(.cta-button)::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #218089;
-    transition: width 0.3s ease;
-}
-
-a:not(.cta-button):hover::after {
-    width: 100%;
-}
-
-/* ===== CONTAINER ===== */
-.container {
-    transition: all 0.3s ease;
-}
-
-/* ===== SECTION ===== */
-.questionnaire-section {
-    transition: all 0.3s ease;
-}
-
-/* ===== RESPONSIVE ===== */
+/* RESPONSYWNOŚĆ */
 @media (max-width: 768px) {
-    .questionnaire-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 30px rgba(33, 128, 141, 0.15) !important;
-    }
+  .diagnostic-container {
+    padding: 30px 20px;
+  }
 
-    .cta-button:hover {
-        transform: translateY(-2px) !important;
-    }
+  .diagnostic-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .diagnostic-hook {
+    font-size: var(--font-size-base);
+  }
+  
+  .diagnostic-section {
+    padding: 40px 15px;
+  }
 }
 
 @media (max-width: 480px) {
-    .questionnaire-card:hover {
-        transform: translateY(-4px);
-    }
+  .diagnostic-container {
+    padding: 20px 16px;
+  }
 
-    .cta-button:hover {
-        transform: translateY(-1px) !important;
-    }
+  .diagnostic-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
 
-    .benefits-list li:hover {
-        padding-left: 8px;
-        transform: translateX(2px);
-    }
-}
-
+  .diagnostic-stat {
+    padding: 12px;
+  }
 }
