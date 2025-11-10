@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://trenermedycznywarszawa.github.io/forestfitstudio/sitemap.xml
+
+Request-rate: 30/1m
+Visit-time: 0600-2400
