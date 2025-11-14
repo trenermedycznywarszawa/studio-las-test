@@ -1,2005 +1,22 @@
-:root {
-  /* Primitive Color Tokens */
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
-  --color-cream-50: rgba(252, 252, 249, 1);
-  --color-cream-100: rgba(255, 255, 253, 1);
-  --color-gray-200: rgba(245, 245, 245, 1);
-  --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(119, 124, 124, 1);
-  --color-slate-500: rgba(98, 108, 113, 1);
-  --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Las - Trener Personalny Warszawa | Rehabilitacja i Fizjoterapia</title>
+    <meta name="description" content="Studio Las - profesjonalny trening personalny w Warszawie. Specjalizacja: rehabilitacja po urazach, trening medyczny, fizjoterapia w sporcie.">
+    <meta name="keywords" content="trener personalny warszawa, trening medyczny, fizjoterapia, rehabilitacja">
+    <link rel="canonical" href="https://trenermedycznywarszawa.github.io/studio-las-test/">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAG BAR: Urgency -->
+<div class="nag-bar">
+    <span>⏰ OSTATNIE 2 SLOTY NA GRUDZIEŃ</span>
+    <a href="javascript:openModal()" class="nag-cta">Zarezerwuj Teraz →</a>
+</div>
 
-  /* RGB versions for opacity control */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
-
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
-  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
-  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
-  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
-  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
-  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
-  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
-  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
-
-  /* Common style patterns */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for opacity control */
-  --color-success-rgb: 33, 128, 141;
-  --color-error-rgb: 192, 21, 47;
-  --color-warning-rgb: 168, 75, 47;
-  --color-info-rgb: 98, 108, 113;
-
-  /* Typography */
-  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, monospace;
-  --font-size-xs: 11px;
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --letter-spacing-tight: -0.01em;
-
-  /* Spacing */
-  --space-0: 0;
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-10: 10px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-base: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
-
-  /* Animation */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Layout */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-}
-
-/* Dark mode colors */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* RGB versions for opacity control (Dark Mode) */
-    --color-gray-400-rgb: 119, 124, 124;
-    --color-teal-300-rgb: 50, 184, 198;
-    --color-gray-300-rgb: 167, 169, 169;
-    --color-gray-200-rgb: 245, 245, 245;
-
-    /* Background color tokens (Dark Mode) */
-    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-    --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-    --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-    --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-    --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-    --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-    --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-    --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-    /* Semantic Color Tokens (Dark Mode) */
-    --color-background: var(--color-charcoal-700);
-    --color-surface: var(--color-charcoal-800);
-    --color-text: var(--color-gray-200);
-    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-    --color-primary: var(--color-teal-300);
-    --color-primary-hover: var(--color-teal-400);
-    --color-primary-active: var(--color-teal-800);
-    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-error: var(--color-red-400);
-    --color-success: var(--color-teal-300);
-    --color-warning: var(--color-orange-400);
-    --color-info: var(--color-gray-300);
-    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-    --color-btn-primary-text: var(--color-slate-900);
-    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-    /* Common style patterns - updated for dark mode */
-    --focus-ring: 0 0 0 3px var(--color-focus-ring);
-    --focus-outline: 2px solid var(--color-primary);
-    --status-bg-opacity: 0.15;
-    --status-border-opacity: 0.25;
-    --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-    /* RGB versions for dark mode */
-    --color-success-rgb: var(--color-teal-300-rgb);
-    --color-error-rgb: var(--color-red-400-rgb);
-    --color-warning-rgb: var(--color-orange-400-rgb);
-    --color-info-rgb: var(--color-gray-300-rgb);
-  }
-}
-
-/* Data attribute for manual theme switching */
-[data-color-scheme="dark"] {
-  /* RGB versions for opacity control (dark mode) */
-  --color-gray-400-rgb: 119, 124, 124;
-  --color-teal-300-rgb: 50, 184, 198;
-  --color-gray-300-rgb: 167, 169, 169;
-  --color-gray-200-rgb: 245, 245, 245;
-
-  /* Colorful background palette - Dark Mode */
-  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-  --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-  --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-  --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-  --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-  --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-  --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-  --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-  /* Semantic Color Tokens (Dark Mode) */
-  --color-background: var(--color-charcoal-700);
-  --color-surface: var(--color-charcoal-800);
-  --color-text: var(--color-gray-200);
-  --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-  --color-primary: var(--color-teal-300);
-  --color-primary-hover: var(--color-teal-400);
-  --color-primary-active: var(--color-teal-800);
-  --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-  --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-error: var(--color-red-400);
-  --color-success: var(--color-teal-300);
-  --color-warning: var(--color-orange-400);
-  --color-info: var(--color-gray-300);
-  --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-  --color-btn-primary-text: var(--color-slate-900);
-  --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-  --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-  /* Common style patterns - updated for dark mode */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for dark mode */
-  --color-success-rgb: var(--color-teal-300-rgb);
-  --color-error-rgb: var(--color-red-400-rgb);
-  --color-warning-rgb: var(--color-orange-400-rgb);
-  --color-info-rgb: var(--color-gray-300-rgb);
-}
-
-[data-color-scheme="light"] {
-  /* RGB versions for opacity control (light mode) */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-
-  /* RGB versions for light mode */
-  --color-success-rgb: var(--color-teal-500-rgb);
-  --color-error-rgb: var(--color-red-500-rgb);
-  --color-warning-rgb: var(--color-orange-500-rgb);
-  --color-info-rgb: var(--color-slate-500-rgb);
-}
-
-/* Base styles */
-html {
-  font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-h1 {
-  font-size: var(--font-size-4xl);
-}
-h2 {
-  font-size: var(--font-size-3xl);
-}
-h3 {
-  font-size: var(--font-size-2xl);
-}
-h4 {
-  font-size: var(--font-size-xl);
-}
-h5 {
-  font-size: var(--font-size-lg);
-}
-h6 {
-  font-size: var(--font-size-md);
-}
-
-p {
-  margin: 0 0 var(--space-16) 0;
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-standard);
-}
-
-a:hover {
-  color: var(--color-primary-hover);
-}
-
-code,
-pre {
-  font-family: var(--font-family-mono);
-  font-size: calc(var(--font-size-base) * 0.95);
-  background-color: var(--color-secondary);
-  border-radius: var(--radius-sm);
-}
-
-code {
-  padding: var(--space-1) var(--space-4);
-}
-
-pre {
-  padding: var(--space-16);
-  margin: var(--space-16) 0;
-  overflow: auto;
-  border: 1px solid var(--color-border);
-}
-
-pre code {
-  background: none;
-  padding: 0;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-standard);
-  border: none;
-  text-decoration: none;
-  position: relative;
-}
-
-.btn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-.btn--primary {
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
-}
-
-.btn--primary:hover {
-  background: var(--color-primary-hover);
-}
-
-.btn--primary:active {
-  background: var(--color-primary-active);
-}
-
-.btn--secondary {
-  background: var(--color-secondary);
-  color: var(--color-text);
-}
-
-.btn--secondary:hover {
-  background: var(--color-secondary-hover);
-}
-
-.btn--secondary:active {
-  background: var(--color-secondary-active);
-}
-
-.btn--outline {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
-.btn--outline:hover {
-  background: var(--color-secondary);
-}
-
-.btn--sm {
-  padding: var(--space-4) var(--space-12);
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-sm);
-}
-
-.btn--lg {
-  padding: var(--space-10) var(--space-20);
-  font-size: var(--font-size-lg);
-  border-radius: var(--radius-md);
-}
-
-.btn--full-width {
-  width: 100%;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Form elements */
-.form-control {
-  display: block;
-  width: 100%;
-  padding: var(--space-8) var(--space-12);
-  font-size: var(--font-size-md);
-  line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-base);
-  transition: border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
-}
-
-textarea.form-control {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-}
-
-select.form-control {
-  padding: var(--space-8) var(--space-12);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: var(--select-caret-light);
-  background-repeat: no-repeat;
-  background-position: right var(--space-12) center;
-  background-size: 16px;
-  padding-right: var(--space-32);
-}
-
-/* Add a dark mode specific caret */
-@media (prefers-color-scheme: dark) {
-  select.form-control {
-    background-image: var(--select-caret-dark);
-  }
-}
-
-/* Also handle data-color-scheme */
-[data-color-scheme="dark"] select.form-control {
-  background-image: var(--select-caret-dark);
-}
-
-[data-color-scheme="light"] select.form-control {
-  background-image: var(--select-caret-light);
-}
-
-.form-control:focus {
-  border-color: var(--color-primary);
-  outline: var(--focus-outline);
-}
-
-.form-label {
-  display: block;
-  margin-bottom: var(--space-8);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.form-group {
-  margin-bottom: var(--space-16);
-}
-
-/* Card component */
-.card {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: box-shadow var(--duration-normal) var(--ease-standard);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.card__body {
-  padding: var(--space-16);
-}
-
-.card__header,
-.card__footer {
-  padding: var(--space-16);
-  border-bottom: 1px solid var(--color-card-border-inner);
-}
-
-/* Status indicators - simplified with CSS variables */
-.status {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-6) var(--space-12);
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.status--success {
-  background-color: rgba(
-    var(--color-success-rgb, 33, 128, 141),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-success);
-  border: 1px solid
-    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
-}
-
-.status--error {
-  background-color: rgba(
-    var(--color-error-rgb, 192, 21, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-error);
-  border: 1px solid
-    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
-}
-
-.status--warning {
-  background-color: rgba(
-    var(--color-warning-rgb, 168, 75, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-warning);
-  border: 1px solid
-    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
-}
-
-.status--info {
-  background-color: rgba(
-    var(--color-info-rgb, 98, 108, 113),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-info);
-  border: 1px solid
-    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
-}
-
-/* Container layout */
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: var(--space-16);
-  padding-left: var(--space-16);
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: var(--container-sm);
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: var(--container-md);
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: var(--container-lg);
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: var(--container-xl);
-  }
-}
-
-/* Utility classes */
-.flex {
-  display: flex;
-}
-.flex-col {
-  flex-direction: column;
-}
-.items-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.gap-4 {
-  gap: var(--space-4);
-}
-.gap-8 {
-  gap: var(--space-8);
-}
-.gap-16 {
-  gap: var(--space-16);
-}
-
-.m-0 {
-  margin: 0;
-}
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-.mx-8 {
-  margin-left: var(--space-8);
-  margin-right: var(--space-8);
-}
-.my-8 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
-}
-
-.p-0 {
-  padding: 0;
-}
-.py-8 {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
-}
-.px-8 {
-  padding-left: var(--space-8);
-  padding-right: var(--space-8);
-}
-.py-16 {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-}
-.px-16 {
-  padding-left: var(--space-16);
-  padding-right: var(--space-16);
-}
-
-.block {
-  display: block;
-}
-.hidden {
-  display: none;
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}
-
-/* Dark mode specifics */
-[data-color-scheme="dark"] .btn--outline {
-  border: 1px solid var(--color-border-secondary);
-}
-
-@font-face {
-  font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
-    format('woff2');
-}
-
-/* END PERPLEXITY DESIGN SYSTEM */
-/* ===================================
-   RESET i ZMIENNE (CSS Custom Properties)
-   =================================== */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    /* === KOLORY === */
-    --color-primary: var(--color-primary);
-    --color-primary-light: var(--color-primary-hover);
-    --color-accent: var(--color-teal-300);
-    --color-bg: var(--color-background);
-    --color-bg-dark: var(--color-surface);
-    --color-text: var(--color-text);
-    --color-text-light: var(--color-text-secondary);
-    --color-border: var(--color-border);
-    
-    /* === TYPOGRAFIA === */
-    --font-family: var(--font-family-base);
-    --font-size-xs: var(--font-size-xs);
-    --font-size-sm: var(--font-size-sm);
-    --font-size-base: var(--font-size-base);
-    --font-size-lg: var(--font-size-lg);
-    --font-size-xl: var(--font-size-xl);
-    --font-size-2xl: var(--font-size-2xl);
-    --font-size-3xl: var(--font-size-3xl);
-    --line-height-tight: var(--line-height-tight);
-    --line-height-normal: var(--line-height-normal);
-    --line-height-relaxed: 1.7;
-    
-    /* === SPACING === */
-    --spacing-xs: var(--space-8);
-    --spacing-sm: var(--space-16);
-    --spacing-md: var(--space-24);
-    --spacing-lg: var(--space-32);
-    --spacing-xl: 48px;
-    --spacing-2xl: 64px;
-    
-    /* === SHADOW === */
-    --shadow-sm: var(--shadow-sm);
-    --shadow-md: var(--shadow-md);
-    --shadow-lg: var(--shadow-lg);
-    
-    /* === TRANSITIONS === */
-    --duration-fast: var(--duration-fast);
-    --duration-normal: var(--duration-normal);
-    --duration-slow: 500ms;
-    --ease-standard: var(--ease-standard);
-}
-
-/* ===================================
-   BASE STYLES
-   =================================== */
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-normal);
-    color: var(--color-text);
-    background-color: var(--color-bg);
-    overflow-x: hidden;
-}
-
-a {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color var(--duration-normal) var(--ease-standard);
-}
-
-a:hover {
-    color: var(--color-primary-light);
-}
-
-/* ===================================
-   CONTAINER
-   =================================== */
-
-.container {
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
-}
-
-/* ===================================
-   NAGŁÓWEK i NAWIGACJA
-   =================================== */
-
-.header {
-    background-color: var(--color-bg-dark);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-sm);
-}
-
-.navbar {
-    padding: var(--spacing-md) 0;
-}
-
-.nav-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    flex-shrink: 0;
-}
-
-.logo-text {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    letter-spacing: var(--letter-spacing-tight);
-}
-
-.nav-menu {
-    display: flex;
-    list-style: none;
-    gap: var(--spacing-lg);
-}
-
-.nav-link {
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    color: var(--color-text);
-    transition: color var(--duration-normal) var(--ease-standard);
-}
-
-.nav-link:hover {
-    color: var(--color-primary);
-}
-
-.mobile-menu-btn {
-    display: none;
-    flex-direction: column;
-    gap: var(--space-6);
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: var(--spacing-xs);
-}
-
-.mobile-menu-btn span {
-    width: 24px;
-    height: 2px;
-    background-color: var(--color-text);
-    transition: all var(--duration-normal) var(--ease-standard);
-    border-radius: var(--radius-sm);
-}
-
-/* ===================================
-   HERO SECTION
-   =================================== */
-
-.hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: var(--spacing-xl);
-    padding: var(--spacing-2xl) 0;
-    min-height: 600px;
-}
-
-.hero-content {
-    padding: var(--spacing-lg);
-}
-
-.hero-title {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-tight);
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-    letter-spacing: var(--letter-spacing-tight);
-}
-
-.hero-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-lg);
-    line-height: var(--line-height-relaxed);
-}
-
-.hero-image {
-    background-size: cover;
-    background-position: center;
-    border-radius: var(--radius-lg);
-    min-height: 500px;
-    box-shadow: var(--shadow-lg);
-}
-
-/* ===================================
-   BUTTONS
-   =================================== */
-
-.btn {
-    display: inline-block;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    cursor: pointer;
-    border: none;
-    transition: all var(--duration-normal) var(--ease-standard);
-    text-decoration: none;
-}
-
-.btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-btn-primary-text);
-}
-
-.btn-primary:hover {
-    background-color: var(--color-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-}
-
-.btn-secondary:hover {
-    background-color: var(--color-primary);
-    color: var(--color-btn-primary-text);
-}
-
-.btn-large {
-    padding: var(--spacing-md) var(--spacing-xl);
-    font-size: var(--font-size-lg);
-}
-
-.btn-full {
-    width: 100%;
-}
-
-/* ===================================
-   SEKCJA STATYSTYK
-   =================================== */
-
-.stats {
-    background-color: var(--color-primary);
-    color: var(--color-btn-primary-text);
-    padding: var(--spacing-2xl) 0;
-    margin: var(--spacing-2xl) 0;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: var(--spacing-lg);
-    text-align: center;
-}
-
-.stat-card {
-    padding: var(--spacing-lg);
-}
-
-.stat-number {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-sm);
-}
-
-.stat-label {
-    font-size: var(--font-size-base);
-    opacity: 0.9;
-}
-
-/* ===================================
-   SEKCJE (OGÓLNE)
-   =================================== */
-
-section {
-    padding: var(--spacing-2xl) 0;
-}
-
-.section-title {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    text-align: center;
-    margin-bottom: var(--spacing-md);
-    letter-spacing: var(--letter-spacing-tight);
-}
-
-.section-subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--color-text-light);
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-}
-
-/* ===================================
-   O MNIE
-   =================================== */
-
-.about {
-    background-color: var(--color-bg-dark);
-}
-
-.about-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    align-items: center;
-}
-
-.about-image img {
-    width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-}
-
-.about-content h2 {
-    font-size: var(--font-size-2xl);
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-    font-weight: var(--font-weight-semibold);
-}
-
-.about-highlights {
-    background-color: var(--color-bg);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-base);
-    margin: var(--spacing-lg) 0;
-    border-left: 4px solid var(--color-accent);
-}
-
-.about-highlights ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.about-highlights li {
-    padding: var(--spacing-sm) 0;
-    padding-left: var(--spacing-lg);
-    position: relative;
-}
-
-.about-highlights li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: var(--color-primary-light);
-    font-weight: bold;
-}
-
-.about-content p {
-    margin-bottom: var(--spacing-md);
-    line-height: var(--line-height-relaxed);
-}
-
-/* ===================================
-   USŁUGI
-   =================================== */
-
-.services {
-    background-color: var(--color-bg);
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.service-card {
-    background-color: var(--color-bg-dark);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    text-align: center;
-    transition: all var(--duration-normal) var(--ease-standard);
-    border: 1px solid var(--color-border);
-}
-
-.service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--color-accent);
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: var(--spacing-md);
-}
-
-.service-card h3 {
-    font-size: var(--font-size-lg);
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-    font-weight: var(--font-weight-semibold);
-}
-
-.service-card p {
-    color: var(--color-text-light);
-    line-height: var(--line-height-relaxed);
-}
-
-/* ===================================
-   PROCES
-   =================================== */
-
-.process {
-    background-color: var(--color-bg-dark);
-}
-
-.process-timeline {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
-    margin-top: var(--spacing-xl);
-}
-
-.process-step {
-    background-color: var(--color-bg);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--color-accent);
-    position: relative;
-    text-align: center;
-}
-
-.step-number {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    background-color: var(--color-primary);
-    color: var(--color-btn-primary-text);
-    border-radius: var(--radius-full);
-    line-height: 48px;
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-md);
-}
-
-.process-step h3 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-sm);
-    font-weight: var(--font-weight-semibold);
-}
-
-.process-step p {
-    color: var(--color-text-light);
-    line-height: var(--line-height-relaxed);
-    font-size: var(--font-size-sm);
-}
-
-/* ===================================
-   OPINIE KLIENTÓW
-   =================================== */
-
-.reviews {
-    background-color: var(--color-bg);
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-}
-
-.review-card {
-    background-color: var(--color-bg-dark);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-    transition: all var(--duration-normal) var(--ease-standard);
-}
-
-.review-card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--color-accent);
-}
-
-.review-header {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-}
-
-.review-avatar {
-    width: 56px;
-    height: 56px;
-    background-color: var(--color-primary);
-    color: var(--color-btn-primary-text);
-    border-radius: var(--radius-full);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: var(--font-weight-bold);
-    flex-shrink: 0;
-}
-
-.review-meta h4 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-xs);
-    font-weight: var(--font-weight-semibold);
-}
-
-.review-goal {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
-}
-
-.review-rating {
-    color: var(--color-accent);
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-md);
-}
-
-.review-text {
-    color: var(--color-text-light);
-    line-height: var(--line-height-relaxed);
-    font-style: italic;
-}
-
-/* ===================================
-   STUDIO
-   =================================== */
-
-.studio {
-    background-color: var(--color-bg-dark);
-}
-
-.studio-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    align-items: center;
-}
-
-.studio-image img {
-    width: 100%;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-}
-
-.studio-content h3 {
-    font-size: var(--font-size-xl);
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-    font-weight: var(--font-weight-semibold);
-}
-
-.studio-content p {
-    color: var(--color-text-light);
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--spacing-md);
-}
-
-.studio-features {
-    margin-top: var(--spacing-lg);
-}
-
-.feature {
-    background-color: var(--color-bg);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-base);
-    margin-bottom: var(--spacing-md);
-    border-left: 4px solid var(--color-accent);
-}
-
-.feature h4 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-xs);
-    font-weight: var(--font-weight-semibold);
-}
-
-.feature p {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
-}
-
-/* ===================================
-   CENNIK
-   =================================== */
-
-.pricing {
-    background-color: var(--color-bg);
-}
-
-.pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-xl);
-}
-
-.pricing-card {
-    background-color: var(--color-bg-dark);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    border: 2px solid var(--color-border);
-    text-align: center;
-    position: relative;
-    transition: all var(--duration-normal) var(--ease-standard);
-}
-
-.pricing-card:hover {
-    border-color: var(--color-accent);
-    box-shadow: var(--shadow-lg);
-}
-
-.pricing-card-featured {
-    border-color: var(--color-primary);
-    transform: scale(1.05);
-    box-shadow: var(--shadow-lg);
-}
-
-.badge {
-    display: inline-block;
-    background-color: var(--color-accent);
-    color: var(--color-btn-primary-text);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-full);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-md);
-}
-
-.pricing-card h3 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-}
-
-.price {
-    margin: var(--spacing-lg) 0;
-}
-
-.currency {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
-}
-
-.amount {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    display: block;
-    margin: var(--spacing-sm) 0;
-}
-
-.price-note {
-    font-size: var(--font-size-sm);
-    color: var(--color-text-light);
-    margin-bottom: var(--spacing-md);
-}
-
-.save {
-    color: var(--color-accent);
-    font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-md);
-}
-
-.price-features {
-    list-style: none;
-    text-align: left;
-    margin: var(--spacing-lg) 0;
-    padding: var(--spacing-lg) 0;
-    border-top: 1px solid var(--color-border);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.price-features li {
-    padding: var(--spacing-sm) 0;
-    color: var(--color-text-light);
-    font-size: var(--font-size-sm);
-}
-
-.price-features li:before {
-    content: "✓ ";
-    color: var(--color-primary-light);
-    font-weight: bold;
-    margin-right: var(--spacing-xs);
-}
-
-.pricing-note {
-    text-align: center;
-    color: var(--color-text-light);
-    font-size: var(--font-size-sm);
-    padding: var(--spacing-lg);
-    background-color: var(--color-bg-dark);
-    border-radius: var(--radius-base);
-    border: 1px solid var(--color-border);
-}
-
-/* ===================================
-   KONTAKT / FORMULARZ
-   =================================== */
-
-.contact {
-    background-color: var(--color-bg-dark);
-}
-
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-xl);
-    margin-top: var(--spacing-xl);
-}
-
-.contact-form,
-.contact-info {
-    background-color: var(--color-bg);
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--color-border);
-}
-
-.contact-form h3,
-.contact-info h3 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-    font-weight: var(--font-weight-semibold);
-}
-
-.contact-method {
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-border);
-}
-
-.contact-method:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-    padding-bottom: 0;
-}
-
-.contact-method h4 {
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-xs);
-    font-weight: var(--font-weight-semibold);
-}
-
-.contact-link {
-    color: var(--color-accent);
-    font-weight: var(--font-weight-bold);
-}
-
-.contact-note {
-    background-color: var(--color-primary);
-    color: var(--color-btn-primary-text);
-    padding: var(--spacing-md);
-    border-radius: var(--radius-base);
-    margin-top: var(--spacing-lg);
-}
-
-/* ===================================
-   FAQ
-   =================================== */
-
-.faq {
-    background-color: var(--color-bg);
-}
-
-.faq-list {
-    max-width: 800px;
-    margin: var(--spacing-xl) auto;
-}
-
-.faq-item {
-    background-color: var(--color-bg-dark);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-base);
-    margin-bottom: var(--spacing-md);
-    overflow: hidden;
-}
-
-.faq-question {
-    width: 100%;
-    padding: var(--spacing-lg);
-    background: none;
-    border: none;
-    text-align: left;
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all var(--duration-normal) var(--ease-standard);
-}
-
-.faq-question:hover {
-    background-color: var(--color-bg);
-}
-
-.faq-icon {
-    font-size: var(--font-size-lg);
-    transition: transform var(--duration-normal) var(--ease-standard);
-}
-
-.faq-item.active .faq-icon {
-    transform: rotate(45deg);
-}
-
-.faq-answer {
-    display: none;
-    padding: 0 var(--spacing-lg) var(--spacing-lg) var(--spacing-lg);
-    color: var(--color-text-light);
-    line-height: var(--line-height-relaxed);
-    border-top: 1px solid var(--color-border);
-}
-
-.faq-item.active .faq-answer {
-    display: block;
-}
-
-/* ===================================
-   FOOTER
-   =================================== */
-
-.footer {
-    background-color: var(--color-primary);
-    color: var(--color-btn-primary-text);
-    padding: var(--spacing-2xl) 0 var(--spacing-lg) 0;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-xl);
-    margin-bottom: var(--spacing-xl);
-}
-
-.footer-section h4 {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--spacing-md);
-    font-weight: var(--font-weight-semibold);
-}
-
-.footer-section p {
-    line-height: var(--line-height-relaxed);
-    opacity: 0.95;
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section a {
-    color: var(--color-btn-primary-text);
-    text-decoration: none;
-    transition: opacity var(--duration-normal) var(--ease-standard);
-}
-
-.footer-section a:hover {
-    opacity: 0.8;
-}
-
-.footer-section li {
-    margin-bottom: var(--spacing-sm);
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: var(--spacing-lg);
-    text-align: center;
-    font-size: var(--font-size-sm);
-    opacity: 0.85;
-}
-
-/* ===================================
-   MEDIA QUERIES (Responsywność)
-   =================================== */
-
-@media (max-width: 1024px) {
-    .hero {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: var(--spacing-lg);
-    }
-
-    .hero-image {
-        min-height: 400px;
-    }
-
-    .about-wrapper,
-    .studio-wrapper,
-    .contact-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    .pricing-card-featured {
-        transform: scale(1);
-    }
-}
-
-@media (max-width: 768px) {
-    /* Mobil menu */
-    .mobile-menu-btn {
-        display: flex;
-    }
-
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: var(--color-bg-dark);
-        flex-direction: column;
-        gap: 0;
-        border-bottom: 1px solid var(--color-border);
-        border-radius: 0;
-        box-shadow: var(--shadow-md);
-        z-index: 999;
-    }
-
-    .nav-menu.active {
-        display: flex;
-    }
-
-    .nav-menu li {
-        border-bottom: 1px solid var(--color-border);
-    }
-
-    .nav-link {
-        display: block;
-        padding: var(--spacing-md);
-    }
-
-    /* Typography */
-    .hero-title {
-        font-size: var(--font-size-2xl);
-    }
-
-    .section-title {
-        font-size: var(--font-size-2xl);
-    }
-
-    /* Spacing */
-    section {
-        padding: var(--spacing-xl) 0;
-    }
-
-    .hero {
-        padding: var(--spacing-xl) 0;
-    }
-
-    /* Grids */
-    .services-grid,
-    .reviews-grid,
-    .pricing-grid,
-    .process-timeline {
-        grid-template-columns: 1fr;
-    }
-
-    /* Stats */
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Container padding */
-    .container {
-        padding: 0 var(--spacing-md);
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --spacing-md: var(--space-16);
-        --spacing-lg: var(--space-24);
-        --spacing-xl: var(--space-32);
-    }
-
-    .logo-text {
-        font-size: var(--font-size-lg);
-    }
-
-    .hero-title {
-        font-size: var(--font-size-xl);
-    }
-
-    .section-title {
-        font-size: var(--font-size-xl);
-    }
-
-    .amount {
-        font-size: var(--font-size-2xl);
-    }
-
-    .btn {
-        padding: var(--space-12) var(--space-16);
-        font-size: var(--font-size-sm);
-    }
-
-    .hero {
-        padding: var(--space-32) 0;
-        gap: var(--space-24);
-    }
-
-    .hero-content {
-        padding: var(--space-16);
-    }
-
-    .hero-image {
-        min-height: 300px;
-    }
-
-    .service-card,
-    .review-card,
-    .pricing-card,
-    .process-step {
-        padding: var(--space-16);
-    }
-
-    .contact-form,
-    .contact-info {
-        padding: var(--space-16);
-    }
-
-    .about-highlights,
-    .feature {
-        padding: var(--space-16);
-        margin: var(--space-16) 0;
-    }
-
-    .stat-card {
-        padding: var(--space-16);
-    }
-
-    .faq-question {
-        padding: var(--space-16);
-    }
-
-    .faq-answer {
-        padding: 0 var(--space-16) var(--space-16) var(--space-16);
-    }
-
-    .pricing-note {
-        padding: var(--space-16);
-    }
-
-    .contact-note {
-        padding: var(--space-16);
-        margin-top: var(--space-16);
-    }
-}/* ===== NEW HERO SECTION STYLES ===== */
-
-/* Hero Stats Bar */
-.hero-stats-bar {
-display: flex;
-justify-content: space-around;
-align-items: center;
-background: linear-gradient(135deg, #2d5016 0%, #4a7c3c 100%);
-padding: 30px 20px;
-margin-bottom: 40px;
-border-radius: 8px;
-box-shadow: 0 4px 15px rgba(45, 80, 22, 0.1);
-}
-
-.hero-stat {
-text-align: center;
-color: #fff;
-}
-
-.hero-stat-number {
-font-size: 32px;
-font-weight: 700;
-line-height: 1;
-margin-bottom: 8px;
-color: #ffeb3b;
-}
-
-.hero-stat-label {
-font-size: 13px;
-font-weight: 500;
-opacity: 0.95;
-}
-
-/* Hero Content */
-.hero-content {
-max-width: 700px;
-}
-
-.hero-title {
-font-size: 42px;
-font-weight: 800;
-line-height: 1.2;
-color: #2d5016;
-margin-bottom: 20px;
-}
-
-.hero-subtitle {
-font-size: 16px;
-line-height: 1.6;
-color: #666;
-margin-bottom: 30px;
-}
-
-/* CTA Buttons */
-.hero-cta-group {
-margin-bottom: 30px;
-}
-
-.btn-large {
-font-size: 16px;
-padding: 16px 32px !important;
-border-radius: 6px;
-display: inline-block;
-margin-bottom: 12px;
-}
-
-.btn-primary {
-background: linear-gradient(135deg, #16a085 0%, #128a74 100%);
-color: #fff;
-text-decoration: none;
-transition: all 0.3s ease;
-box-shadow: 0 4px 15px rgba(22, 160, 133, 0.2);
-}
-
-.btn-primary:hover {
-transform: translateY(-2px);
-box-shadow: 0 6px 20px rgba(22, 160, 133, 0.3);
-background: linear-gradient(135deg, #128a74 0%, #0f6b5c 100%);
-}
-
-.micro-text {
-font-size: 12px;
-color: #999;
-font-style: italic;
-}
-
-/* Credibility Badges */
-.credibility-badges {
-display: flex;
-align-items: center;
-gap: 12px;
-flex-wrap: wrap;
-margin-top: 30px;
-}
-
-.badge-text {
-font-size: 13px;
-color: #666;
-font-weight: 600;
-}
-
-.badge {
-background: #f0f0f0;
-border: 1px solid #ddd;
-padding: 6px 14px;
-border-radius: 20px;
-font-size: 12px;
-font-weight: 600;
-color: #2d5016;
-transition: all 0.2s ease;
-}
-
-.badge:hover {
-background: #2d5016;
-color: #fff;
-border-color: #2d5016;
-}
-
-/* Hero Image Container */
-.hero-image-container {
-position: relative;
-overflow: hidden;
-border-radius: 12px;
-box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-.hero-image {
-width: 100%;
-height: auto;
-display: block;
-transition: transform 0.3s ease;
-}
-
-.hero-image-container:hover .hero-image {
-transform: scale(1.02);
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-.hero-stats-bar {
-flex-direction: column;
-gap: 20px;
-}
-
-.hero-title {
-font-size: 32px;
-}
-
-.hero-subtitle {
-font-size: 15px;
-}
-
-.credibility-badges {
-justify-content: center;
-}
-}/* ===== NAG BAR URGENCY ===== */
-.nag-bar {
-  background: linear-gradient(90deg, #c0392b 0%, #e74c3c 100%);
-  color: #fff;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: 600;
-  font-size: 14px;
-  box-shadow: 0 2px 10px rgba(192, 57, 43, 0.2);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nag-cta {
-  background: #fff;
-  color: #c0392b;
-  padding: 6px 16px;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 12px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.nag-cta:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-@media (max-width: 768px) {
-  .nag-bar {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
-}
-```
-
-**Printscreen po dodaniu CSS.**
-
-***
-
-## 🎬 KROK 3: MODAL 3-Pytaniowy (JavaScript)
-
-Dodaj do `index.html` przed `</body>`:
-
-```html```
 <!-- MODAL: 3-Question Intake -->
 <div id="modal-intake" class="modal" style="display:none;">
   <div class="modal-content">
@@ -2013,7 +30,7 @@ Dodaj do `index.html` przed `</body>`:
       <div class="modal-question">
         <label>1. Jaki jest Twój główny cel?</label>
         <div class="radio-group">
-          <label><input type="radio" name="goal" value="injury"> 🦵 Post-uraz / Rehabilitacja</label>
+          <label><input type="radio" name="goal" value="injury" required> 🦵 Post-uraz / Rehabilitacja</label>
           <label><input type="radio" name="goal" value="senior"> 👴 Senior / Siła i równowaga</label>
           <label><input type="radio" name="goal" value="transform"> 💪 Transformacja ciała</label>
         </div>
@@ -2023,7 +40,7 @@ Dodaj do `index.html` przed `</body>`:
       <div class="modal-question">
         <label>2. Masz bóle lub problemy zdrowotne?</label>
         <div class="radio-group">
-          <label><input type="radio" name="pain" value="yes"> Tak</label>
+          <label><input type="radio" name="pain" value="yes" required> Tak</label>
           <label><input type="radio" name="pain" value="no"> Nie</label>
         </div>
       </div>
@@ -2059,35 +76,53 @@ function openModal() {
 
 function closeModal() {
   document.getElementById('modal-intake').style.display = 'none';
+  document.getElementById('intake-form').style.display = 'block';
+  document.getElementById('intake-success').style.display = 'none';
+  document.getElementById('intake-form').reset();
 }
 
 function handleIntakeSubmit(event) {
   event.preventDefault();
   
-  const goal = document.querySelector('input[name="goal"]:checked').value;
-  const pain = document.querySelector('input[name="pain"]:checked').value;
-  const email = document.querySelector('input[name="email"]').value;
+  const goalElement = document.querySelector('input[name="goal"]:checked');
+  const painElement = document.querySelector('input[name="pain"]:checked');
+  const emailElement = document.querySelector('input[name="email"]');
   
-  // Log to console (w realu: POST to backend)
-  console.log('LEAD:', { goal, pain, email });
+  if (!goalElement || !painElement || !emailElement.value) {
+    alert('Proszę wypełnić wszystkie pola formularza');
+    return;
+  }
+  
+  const goal = goalElement.value;
+  const pain = painElement.value;
+  const email = emailElement.value;
+  
+  console.log('LEAD SUBMITTED:', { 
+    goal: goal, 
+    pain: pain, 
+    email: email,
+    timestamp: new Date().toISOString()
+  });
   
   // Send to Google Forms
   const formData = new FormData();
-  formData.append('email', email);
-  formData.append('goal', goal);
-  formData.append('pain', pain);
+  formData.append('entry.email_address', email);
+  formData.append('entry.goal_type', goal);
+  formData.append('entry.pain_status', pain);
   
   fetch('https://docs.google.com/forms/d/e/1FAIpQLScMH0fF5ZID6zY5PeC5Wp7xXjTf1VHND4Pert7cbUI7pRWEIQ/formResponse', {
     method: 'POST',
     body: formData,
     mode: 'no-cors'
   }).then(() => {
-    // Show success
     document.getElementById('intake-form').style.display = 'none';
     document.getElementById('intake-success').style.display = 'block';
-    
-    // Close modal after 3 seconds
-    setTimeout(() => closeModal(), 3000);
+    setTimeout(() => closeModal(), 3500);
+  }).catch((error) => {
+    console.error('Form submission error:', error);
+    document.getElementById('intake-form').style.display = 'none';
+    document.getElementById('intake-success').style.display = 'block';
+    setTimeout(() => closeModal(), 3500);
   });
 }
 
@@ -2099,174 +134,470 @@ window.onclick = function(event) {
   }
 }
 </script>
-```
 
-**Printscreen po wklejeniu.**
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <span class="logo-text">Studio Las</span>
+                </div>
 
----
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
 
-## 🎨 KROK 4: CSS dla MODAL
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home" class="nav-link">Strona główna</a></li>
+                    <li><a href="#about" class="nav-link">O mnie</a></li>
+                    <li><a href="#services" class="nav-link">Usługi</a></li>
+                    <li><a href="#process" class="nav-link">Proces</a></li>
+                    <li><a href="#reviews" class="nav-link">Opinie</a></li>
+                    <li><a href="#pricing" class="nav-link">Cennik</a></li>
+                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
 
-Dodaj do `style.css`:
+<!-- ===== HERO SECTION ===== -->
+<section class="hero" id="home">
+  <div class="hero-stats-bar">
+    <div class="hero-stat">
+      <div class="hero-stat-number">15+</div>
+      <div class="hero-stat-label">lat doświadczenia</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">1250+</div>
+      <div class="hero-stat-label">klientów</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">94%</div>
+      <div class="hero-stat-label">powrót do sportu</div>
+    </div>
+  </div>
 
-``````css
-/* ===== MODAL STYLES ===== */
-.modal {
-  display: none !important;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  align-items: center;
-  justify-content: center;
-  animation: fadeIn 0.3s ease;
-}
+  <div class="hero-content">
+    <h1 class="hero-title">Twój Personalny Trener Medyczny<br>W Odległości Kroku</h1>
+    <p class="hero-subtitle">Dla sąsiadów z Pracze Duże. Specjalizacja w rehabilitacji i transformacji fizycznej. 15+ lat doświadczenia z Instytutami Medycznymi.</p>
+    
+    <div class="hero-cta-group">
+      <a href="javascript:openModal()" class="btn btn-primary btn-large">
+        🎯 Zarezerwuj Ocenę (Gratis 15 min)
+      </a>
+      <p class="micro-text">2 sloty dostępne • Odpowiadam w 2h • Bez zobowiązań</p>
+    </div>
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+    <div class="credibility-badges">
+      <span class="badge-text">Współpraca z:</span>
+      <span class="badge">WIML</span>
+      <span class="badge">WAT</span>
+      <span class="badge">Instytut Sportu</span>
+    </div>
+  </div>
 
-.modal-content {
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 10px 50px rgba(0,0,0,0.3);
-  position: relative;
-  animation: slideUp 0.4s ease;
-}
+  <div class="hero-image-container">
+    <img src="damian-hero2.jpg" alt="Damian Krawiec - Trener Medyczny Warszawa" class="hero-image">
+  </div>
+</section>
 
-@keyframes slideUp {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
+<!-- ===== STATS ===== -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 class="stat-number">200+</h3>
+                <p class="stat-label">Sesji treningowych</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number">95%</h3>
+                <p class="stat-label">Powrotu do zdrowia</p>
+            </div>
+            <div class="stat-card">
+                <h3 class="stat-number">4.9★</h3>
+                <p class="stat-label">Średnia ocena</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-.modal-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: #999;
-  transition: color 0.2s ease;
-}
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+    <div class="container">
+        <div class="about-wrapper">
+            <div class="about-image">
+                <img src="damian-about.jpg" alt="Damian - Trener Personalny">
+            </div>
+            <div class="about-content">
+                <h2>Kim jestem?</h2>
+                <p><strong>Trener Medyczny • Absolwent AWF • Specjalista Fizjoterapii w Sporcie</strong></p>
+                
+                <div class="about-highlights">
+                    <p><strong>Edukacja:</strong></p>
+                    <ul>
+                        <li>Magister Wychowania Fizycznego (AWF Warszawa)</li>
+                        <li>Wyższa Szkoła Oficerska Wojsk Lądowych</li>
+                        <li>Studia podyplomowe: Fizjoterapia w Sporcie</li>
+                        <li>30+ certyfikatów międzynarodowych</li>
+                    </ul>
+                </div>
 
-.modal-close:hover {
-  color: #333;
-}
+                <p>Studio Las to miejsce, gdzie treningi robię po mojemu, bez kompromisów. Współpracuję z Wojskowym Instytutem Medycyny Lotniczej i Wojskową Akademią Techniczną.</p>
 
-.modal h2 {
-  margin-bottom: 30px;
-  font-size: 24px;
-  color: #2d5016;
-}
+                <a href="https://sites.google.com/view/trener-personalny-warszawa/referencje" class="btn btn-secondary" target="_blank">Moje Referencje</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-.modal-question {
-  margin-bottom: 25px;
-}
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+    <div class="container">
+        <h2 class="section-title">Moje Usługi</h2>
+        <p class="section-subtitle">Kompleksowe podejście do Twojego zdrowia</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎯</div>
+                <h3>Trening Indywidualny</h3>
+                <p>Spersonalizowane ćwiczenia dostosowane do Twoich celów.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚕️</div>
+                <h3>Trening Medyczny</h3>
+                <p>Bezpieczny powrót do formy po urazach.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏥</div>
+                <h3>Fizjoterapia w Sporcie</h3>
+                <p>Leczenie urazów i regeneracja.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📋</div>
+                <h3>Konsultacja Diagnostyczna</h3>
+                <p>Pełne badanie składu ciała i testy funkcjonalne.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤰</div>
+                <h3>Trening dla Kobiet w Ciąży</h3>
+                <p>Bezpieczne ćwiczenia w każdym trymestrze.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚓</div>
+                <h3>Przygotowanie do Testów</h3>
+                <p>Egzaminy PSP, Policji, Wojska.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-.modal-question label:first-of-type {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 12px;
-  color: #333;
-}
+<!-- ===== PROCESS ===== -->
+<section class="process" id="process">
+    <div class="container">
+        <h2 class="section-title">Jak Wygląda Nasza Współpraca</h2>
+        
+        <div class="process-timeline">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Rozmowa</h3>
+                <p>Skontaktujesz się poprzez WhatsApp, email lub formularz.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Badanie i Diagnostyka</h3>
+                <p>Pełne badanie składu ciała i test funkcjonalny.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Opracowanie Planu</h3>
+                <p>Tworzę spersonalizowany plan treningowy.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Treningi i Monitoring</h3>
+                <p>Trenujemy systematycznie z pełnym wsparciem.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">5</div>
+                <h3>Samodzielność i Efekty</h3>
+                <p>Nauczam Cię jak dbać o zdrowie samodzielnie.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-.radio-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+<!-- ===== REVIEWS ===== -->
+<section class="reviews" id="reviews">
+    <div class="container">
+        <h2 class="section-title">Co Mówią Moi Klienci</h2>
+        
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">A.K.</div>
+                    <div class="review-meta">
+                        <h4>Anna K., 28 lat</h4>
+                        <p class="review-goal">Powrót do formy po ciąży</p>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"Po ciąży myślałam, że nigdy nie wrócę do formy. Damian podejście był miłe, bezpieczne i efektywne. Czuję się lepiej niż kiedykolwiek!"</p>
+            </div>
 
-.radio-group label {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-weight: 400;
-}
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">M.J.</div>
+                    <div class="review-meta">
+                        <h4>Marek J., 35 lat</h4>
+                        <p class="review-goal">Powrót do sportu po kontuzji kolana</p>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"Skręciłem sobie kolano i bałem się, że nie wrócę do piłki. Trener wiedział dokładnie co robić. Nigdy się nie bałem!"</p>
+            </div>
 
-.radio-group input[type="radio"] {
-  margin-right: 10px;
-  cursor: pointer;
-}
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">J.W.</div>
+                    <div class="review-meta">
+                        <h4>Janusz W., 65 lat</h4>
+                        <p class="review-goal">Siła, równowaga i kondycja</p>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"Nigdy nie myślałem, że mogę trenować w moim wieku. Damian pokazał mi, że wiek to tylko liczba!"</p>
+            </div>
 
-.modal-question input[type="email"] {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  font-size: 14px;
-  font-family: inherit;
-}
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">Ł.M.</div>
+                    <div class="review-meta">
+                        <h4>Łukasz M., 26 lat</h4>
+                        <p class="review-goal">Przygotowanie do testu PSP</p>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"Zdałem test PSP za pierwszym razem. Profesjonalnie, bez gadki, same efekty."</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-.modal-question input[type="email"]:focus {
-  outline: none;
-  border-color: #16a085;
-  box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.1);
-}
+<!-- ===== STUDIO ===== -->
+<section class="studio" id="studio">
+    <div class="container">
+        <h2 class="section-title">Studio Las</h2>
+        <p class="section-subtitle">Wyjątkowe miejsce w sercu lasu</p>
+        
+        <div class="studio-wrapper">
+            <div class="studio-image">
+                <img src="studio-interior.jpg" alt="Wnętrze Studio Las">
+            </div>
+            <div class="studio-content">
+                <h3>Dlaczego to miejsce jest wyjątkowe?</h3>
+                <p>Studio Las to nie kolejna siłownia w bloku. To <strong>kameralne miejsce w sercu lasu</strong>, gdzie natura spotyka się z najwyższej klasy sprzętem treningowym.</p>
+                
+                <div class="studio-features">
+                    <div class="feature">
+                        <h4>🌲 Las zamiast betonu</h4>
+                        <p>Spokój i prywatność dla Twojej koncentracji.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>⚙️ Profesjonalny sprzęt</h4>
+                        <p>Life Fitness, Tanita RD-545, sprzęt wojskowy.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>👥 Brak kolejek</h4>
+                        <p>Kameralna atmosfera. Tylko Ty i Twój trening.</p>
+                    </div>
+                    <div class="feature">
+                        <h4>🍃 Regeneracja</h4>
+                        <p>Naturalne otoczenie sprzyjające regeneracji.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-.modal-disclaimer {
-  font-size: 12px;
-  color: #999;
-  margin-top: 15px;
-  font-style: italic;
-}
+<!-- ===== PRICING ===== -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <h2 class="section-title">Cennik</h2>
+        <p class="section-subtitle">Elastyczne opcje dopasowane do Twoich potrzeb</p>
+        
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Sesja Próbna</h3>
+                <div class="price">
+                    <span class="currency">PLN</span>
+                    <span class="amount">150</span>
+                </div>
+                <p class="price-note">60 minut</p>
+                <ul class="price-features">
+                    <li>✓ Badanie diagnostyczne</li>
+                    <li>✓ Test funkcjonalny</li>
+                    <li>✓ Plan treningowy</li>
+                </ul>
+                <a href="javascript:openModal()" class="btn btn-primary btn-full">Zarezerwuj</a>
+            </div>
 
-.modal-success {
-  text-align: center;
-}
+            <div class="pricing-card pricing-card-featured">
+                <div class="badge">Najpopularniejszy</div>
+                <h3>Pakiet 10 Sesji</h3>
+                <div class="price">
+                    <span class="currency">PLN</span>
+                    <span class="amount">1400</span>
+                </div>
+                <p class="price-note">~140 PLN za sesję</p>
+                <p class="save">Oszczędzasz 100 PLN!</p>
+                <ul class="price-features">
+                    <li>✓ 10 sesji treningowych</li>
+                    <li>✓ Monitoring postępów</li>
+                    <li>✓ Plan indywidualny</li>
+                </ul>
+                <a href="javascript:openModal()" class="btn btn-primary btn-full">Zarezerwuj</a>
+            </div>
 
-.modal-success h3 {
-  color: #27ae60;
-  margin-bottom: 10px;
-}
-```
+            <div class="pricing-card">
+                <h3>Pakiet 20 Sesji</h3>
+                <div class="price">
+                    <span class="currency">PLN</span>
+                    <span class="amount">2600</span>
+                </div>
+                <p class="price-note">~130 PLN za sesję</p>
+                <p class="save">Oszczędzasz 400 PLN!</p>
+                <ul class="price-features">
+                    <li>✓ 20 sesji treningowych</li>
+                    <li>✓ Bieżący monitoring</li>
+                    <li>✓ Wsparcie pełne</li>
+                </ul>
+                <a href="javascript:openModal()" class="btn btn-primary btn-full">Zarezerwuj</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-**Printscreen.**
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+    <div class="container">
+        <h2 class="section-title">Umów Się Na Konsultację</h2>
+        
+        <div class="contact-wrapper">
+            <div class="contact-form">
+                <h3>Skontaktuj Się Bezpośrednio</h3>
+                
+                <div class="contact-method">
+                    <h4>💬 WhatsApp (Najszybciej)</h4>
+                    <a href="https://wa.me/48503975998" class="contact-link" target="_blank">503 975 998</a>
+                </div>
 
-***
+                <div class="contact-method">
+                    <h4>📧 Email</h4>
+                    <a href="mailto:damian@trenermedyczny.pl" class="contact-link">damian@trenermedyczny.pl</a>
+                </div>
 
-## 🔗 KROK 5: Zmień NAG BAR link na otwarcie modala
+                <div class="contact-method">
+                    <h4>📞 Telefon</h4>
+                    <a href="tel:+48503975998" class="contact-link">503 975 998</a>
+                </div>
 
-W HTML, zmień:
+                <div class="contact-method">
+                    <h4>📍 Lokalizacja</h4>
+                    <p>Pracze Duże, ul. Pracka 1, Tarczyn</p>
+                    <a href="https://maps.google.com/maps?q=Pracze+Du%C5%BCe+ul.+Pracka+1+Tarczyn" class="contact-link" target="_blank">Otwórz w Google Maps</a>
+                </div>
 
-```html```
-<a href="#modal-intake" class="nag-cta">
-```
+                <div class="contact-note">
+                    <p><strong>Godziny:</strong> Pn-Pt 16:00 - 22:00</p>
+                </div>
+            </div>
 
-Na:
+            <div class="contact-info">
+                <h3>Lub Wypełnij Formularz</h3>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScMH0fF5ZID6zY5PeC5Wp7xXjTf1VHND4Pert7cbUI7pRWEIQ/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0">Wczytywanie…</iframe>
+            </div>
+        </div>
+    </div>
+</section>
 
-``````html
-<a href="javascript:openModal()" class="nag-cta">
-```
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq">
+    <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        
+        <div class="faq-list">
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Nie jestem w formie. Czy mogę zacząć?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutnie! Pracuję z osobami na każdym poziomie. Każdy program jest dostosowany do Twoich możliwości.</p>
+                </div>
+            </div>
 
-**Printscreen.**
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Czy mogę trenować z urazami?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>To moja specjalizacja! Przeprowadzam szczegółowe badanie i adaptuję wszystko do Twoich ograniczeń.</p>
+                </div>
+            </div>
 
-***
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span>Jak się umówić?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Najszybciej przez WhatsApp (503 975 998) lub kliknij "Zarezerwuj" na górze strony.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-## ✅ KROK 6: Git Push
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Studio Las</h4>
+                <p>Profesjonalny trening w sercu lasu.</p>
+            </div>
 
-```powershell```
-git add .
-git commit -m "🎯 KONWERSJA LEVEL UP: Nag Bar + Modal 3-Pytaniowy + JavaScript Form Handler"
-git push origin main
-```
+            <div class="footer-section">
+                <h4>Linki</h4>
+                <ul>
+                    <li><a href="#home">Strona główna</a></li>
+                    <li><a href="#about">O mnie</a></li>
+                    <li><a href="#services">Usługi</a></li>
+                    <li><a href="#pricing">Cennik</a></li>
+                </ul>
+            </div>
 
-**Pokaż printscreen z `git push` outputem.**
+            <div class="footer-section">
+                <h4>Kontakt</h4>
+                <p>📱 WhatsApp: <a href="https://wa.me/48503975998">503 975 998</a></p>
+                <p>📧 <a href="mailto:damian@trenermedyczny.pl">Email</a></p>
+            </div>
+        </div>
 
----
+        <div class="footer-bottom">
+            <p>&copy; 2025 Studio Las. Wszystkie prawa zastrzeżone.</p>
+        </div>
+    </div>
+</footer>
 
-## 🔴 CZEKAM NA:
+<!-- ===== JAVASCRIPT ===== -->
+<script src="main.js"></script>
 
-1. **Printscreen po każdym kroku**
-2. **Ostateczny printscreen live strony** (z nag bar na górze)
-3. **Test: Kliknij "Zarezerwuj" – czy modal się otwiera?**
-
-**Zaczynaj od KROKU 1 – dodaj NAG BAR do HTML.**
+</body>
+</html>

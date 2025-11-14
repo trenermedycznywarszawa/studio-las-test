@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- NAG BAR: Urgency -->
+<div class="nag-bar">
+    <span>⏰ OSTATNIE 2 SLOTY NA GRUDZIEŃ</span>
+    <a href="javascript:openModal()" class="nag-cta">Zarezerwuj Teraz →</a>
+</div>
+
 <!-- MODAL: 3-Question Intake -->
 <div id="modal-intake" class="modal" style="display:none;">
   <div class="modal-content">
@@ -23,7 +30,7 @@
       <div class="modal-question">
         <label>1. Jaki jest Twój główny cel?</label>
         <div class="radio-group">
-          <label><input type="radio" name="goal" value="injury"> 🦵 Post-uraz / Rehabilitacja</label>
+          <label><input type="radio" name="goal" value="injury" required> 🦵 Post-uraz / Rehabilitacja</label>
           <label><input type="radio" name="goal" value="senior"> 👴 Senior / Siła i równowaga</label>
           <label><input type="radio" name="goal" value="transform"> 💪 Transformacja ciała</label>
         </div>
@@ -33,7 +40,7 @@
       <div class="modal-question">
         <label>2. Masz bóle lub problemy zdrowotne?</label>
         <div class="radio-group">
-          <label><input type="radio" name="pain" value="yes"> Tak</label>
+          <label><input type="radio" name="pain" value="yes" required> Tak</label>
           <label><input type="radio" name="pain" value="no"> Nie</label>
         </div>
       </div>
@@ -69,35 +76,49 @@ function openModal() {
 
 function closeModal() {
   document.getElementById('modal-intake').style.display = 'none';
+  // Reset form when closing
+  document.getElementById('intake-form').style.display = 'block';
+  document.getElementById('intake-success').style.display = 'none';
+  document.getElementById('intake-form').reset();
 }
 
 function handleIntakeSubmit(event) {
   event.preventDefault();
   
-  const goal = document.querySelector('input[name="goal"]:checked').value;
-  const pain = document.querySelector('input[name="pain"]:checked').value;
+  const goal = document.querySelector('input[name="goal"]:checked');
+  const pain = document.querySelector('input[name="pain"]:checked');
   const email = document.querySelector('input[name="email"]').value;
   
-  // Log to console (w realu: POST to backend)
-  console.log('LEAD:', { goal, pain, email });
+  if (!goal || !pain) {
+    alert('Proszę wybrać opcję dla wszystkich pytań');
+    return;
+  }
+  
+  console.log('LEAD DATA:', { 
+    goal: goal.value, 
+    pain: pain.value, 
+    email: email,
+    timestamp: new Date().toISOString()
+  });
   
   // Send to Google Forms
   const formData = new FormData();
-  formData.append('email', email);
-  formData.append('goal', goal);
-  formData.append('pain', pain);
+  formData.append('entry.1234567890', email); // Zmień ID pola
+  formData.append('entry.1234567891', goal.value); // Zmień ID pola
+  formData.append('entry.1234567892', pain.value); // Zmień ID pola
   
   fetch('https://docs.google.com/forms/d/e/1FAIpQLScMH0fF5ZID6zY5PeC5Wp7xXjTf1VHND4Pert7cbUI7pRWEIQ/formResponse', {
     method: 'POST',
     body: formData,
     mode: 'no-cors'
   }).then(() => {
-    // Show success
     document.getElementById('intake-form').style.display = 'none';
     document.getElementById('intake-success').style.display = 'block';
     
-    // Close modal after 3 seconds
     setTimeout(() => closeModal(), 3000);
+  }).catch((error) => {
+    console.error('Error:', error);
+    alert('Błąd wysyłania formularza. Spróbuj ponownie.');
   });
 }
 
@@ -109,13 +130,7 @@ window.onclick = function(event) {
   }
 }
 </script>
-```
 
-
-}
-```
-
-<!-- NAG BAR: Urgency --> <div class="nag-bar"> <span>⏰ OSTATNIE 2 SLOTY NA GRUDZIEŃ</span> <a href="javascript:openModal()" class="nag-cta">Zarezerwuj Teraz →</a> </div>
 <!-- ===== NAGŁÓWEK / HEADER ===== -->
 <header class="header">
     <nav class="navbar">
@@ -149,21 +164,44 @@ window.onclick = function(event) {
 </header>
 
 <!-- ===== HERO SECTION ===== -->
-<!-- CTA Buttons -->
-<div class="hero-cta-group">
-  <a href="#intake-form" class="btn btn-primary btn-large">
-    🎯 Zarezerwuj Ocenę (Gratis 15 min)
-  </a>
-  <p class="micro-text">2 sloty dostępne -  Odpowiadam w 2h -  Bez zobowiązań</p>
-</div>
+<section class="hero" id="home">
+  <div class="hero-stats-bar">
+    <div class="hero-stat">
+      <div class="hero-stat-number">15+</div>
+      <div class="hero-stat-label">lat doświadczenia</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">1250+</div>
+      <div class="hero-stat-label">klientów</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">94%</div>
+      <div class="hero-stat-label">powrót do sportu</div>
+    </div>
+  </div>
 
-<!-- Credibility Badges -->
-<div class="credibility-badges">
-  <span class="badge-text">Współpraca z:</span>
-  <span class="badge">WIML</span>
-  <span class="badge">WAT</span>
-  <span class="badge">Instytut Sportu</span>
-</div>
+  <div class="hero-content">
+    <h1 class="hero-title">Twój Personalny Trener Medyczny<br>W Odległości Kroku</h1>
+    <p class="hero-subtitle">Dla sąsiadów z Pracze Duże. Specjalizacja w rehabilitacji i transformacji fizycznej. 15+ lat doświadczenia z Instytutami Medycznymi.</p>
+    
+    <div class="hero-cta-group">
+      <a href="javascript:openModal()" class="btn btn-primary btn-large">
+        🎯 Zarezerwuj Ocenę (Gratis 15 min)
+      </a>
+      <p class="micro-text">2 sloty dostępne • Odpowiadam w 2h • Bez zobowiązań</p>
+    </div>
+
+    <div class="credibility-badges">
+      <span class="badge-text">Współpraca z:</span>
+      <span class="badge">WIML</span>
+      <span class="badge">WAT</span>
+      <span class="badge">Instytut Sportu</span>
+    </div>
+  </div>
+
+  <div class="hero-image-container">
+    <img src="damian-hero2.jpg" alt="Damian Krawiec - Trener Medyczny Warszawa" class="hero-image">
+  </div>
 </section>
 
 <!-- ===== SEKCJA STATYSTYK ===== -->
@@ -195,7 +233,7 @@ window.onclick = function(event) {
             </div>
             <div class="about-content">
                 <h2>Kim jestem?</h2>
-                <p><strong>Oficer Wojska Polskiego • Absolwent AWF • Specjalista Fizjoterapii w Sporcie</strong></p>
+                <p><strong>Trener Medyczny • Absolwent AWF • Specjalista Fizjoterapii w Sporcie</strong></p>
                 
                 <div class="about-highlights">
                     <p><strong>Edukacja Formalna:</strong></p>
@@ -408,7 +446,7 @@ window.onclick = function(event) {
                     <li>✓ Test funkcjonalny</li>
                     <li>✓ Spersonalizowany plan</li>
                 </ul>
-                <a href="#contact" class="btn btn-primary btn-full">Zarezerwuj Teraz</a>
+                <a href="javascript:openModal()" class="btn btn-primary btn-full">Zarezerwuj Teraz</a>
             </div>
 
             <div class="pricing-card pricing-card-featured">
@@ -426,7 +464,7 @@ window.onclick = function(event) {
                     <li>✓ Elastyczne godziny</li>
                     <li>✓ Plan na cały okres</li>
                 </ul>
-                <a href="#contact" class="btn btn-primary btn-full">Zarezerwuj Teraz</a>
+                <a href="javascript:openModal()" class="btn btn-primary btn-full">Zarezerwuj Teraz</a>
             </div>
 
             <div class="pricing-card">
@@ -443,7 +481,7 @@ window.onclick = function(event) {
                     <li>✓ Dostosowania planu</li>
                     <li>✓ Wsparcie między sesjami</li>
                 </ul>
-                <a href="#contact" class="btn btn-primary btn-full">Zarezerwuj Teraz</a>
+                <a href="javascript:openModal()" class="btn btn-primary btn-full">Zarezerwuj Teraz</a>
             </div>
         </div>
 
@@ -461,12 +499,6 @@ window.onclick = function(event) {
         
         <div class="contact-wrapper">
             <div class="contact-form">
-                <h3>Wypełnij Formularz</h3>
-                <p>Zaznacz swoją dostępność, a my ustalimy dokładny termin konsultacji diagnostycznej.</p>
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScMH0fF5ZID6zY5PeC5Wp7xXjTf1VHND4Pert7cbUI7pRWEIQ/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Wczytywanie…</iframe>
-            </div>
-
-            <div class="contact-info">
                 <h3>Skontaktuj Się Bezpośrednio</h3>
                 
                 <div class="contact-method">
@@ -493,6 +525,12 @@ window.onclick = function(event) {
                 <div class="contact-note">
                     <p><strong>Godziny odpowiadania:</strong> Poniedziałek - Piątek, 16:00 - 22:00</p>
                 </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>Lub Wypełnij Formularz</h3>
+                <p>Zaznacz swoją dostępność, a my ustalimy dokładny termin konsultacji diagnostycznej.</p>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScMH0fF5ZID6zY5PeC5Wp7xXjTf1VHND4Pert7cbUI7pRWEIQ/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Wczytywanie…</iframe>
             </div>
         </div>
     </div>
@@ -550,7 +588,7 @@ window.onclick = function(event) {
                     <span class="faq-icon">+</span>
                 </button>
                 <div class="faq-answer">
-                    <p>Studio Les znajduje się w Praczach Dużych (ul. Pracka 1, gmina Tarczyn) – około 10 minut od Piaseczna. Studio położone jest w sercu lasu – spokojne, naturalne otoczenie. Otwórz Google Maps, aby zobaczyć trasę.</p>
+                    <p>Studio Las znajduje się w Praczach Dużych (ul. Pracka 1, gmina Tarczyn) – około 10 minut od Piaseczna. Studio położone jest w sercu lasu – spokojne, naturalne otoczenie. Otwórz Google Maps, aby zobaczyć trasę.</p>
                 </div>
             </div>
 
@@ -574,7 +612,7 @@ window.onclick = function(event) {
             <div class="footer-section">
                 <h4>Studio Las</h4>
                 <p>Profesjonalny trening personalny w sercu lasu.</p>
-                <p><strong>Oficer WP • Absolwent AWF • Specjalista Fizjoterapii</strong></p>
+                <p><strong>Trener Medyczny • Absolwent AWF • Specjalista Fizjoterapii</strong></p>
             </div>
 
             <div class="footer-section">
