@@ -1,9 +1,18 @@
+# Robots.txt dla Studio Las
+
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
+Disallow: /backup_old_files/
 
-Sitemap: https://trenermedycznywarszawa.github.io/forestfitstudio/sitemap.xml
+# Sitemap
+Sitemap: https://trenermedycznywarszawa.github.io/studio-las-test/sitemap.xml
 
-Request-rate: 30/1m
-Visit-time: 0600-2400
+# Crawl delay
+Crawl-delay: 1
+
+# User-agent specifics
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
