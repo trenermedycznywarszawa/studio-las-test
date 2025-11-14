@@ -10,7 +10,112 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!-- MODAL: 3-Question Intake -->
+<div id="modal-intake" class="modal" style="display:none;">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    
+    <h2>🎯 Szybka Ocena (2 min)</h2>
+    
+    <form id="intake-form" onsubmit="handleIntakeSubmit(event)">
+      
+      <!-- QUESTION 1 -->
+      <div class="modal-question">
+        <label>1. Jaki jest Twój główny cel?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="goal" value="injury"> 🦵 Post-uraz / Rehabilitacja</label>
+          <label><input type="radio" name="goal" value="senior"> 👴 Senior / Siła i równowaga</label>
+          <label><input type="radio" name="goal" value="transform"> 💪 Transformacja ciała</label>
+        </div>
+      </div>
 
+      <!-- QUESTION 2 -->
+      <div class="modal-question">
+        <label>2. Masz bóle lub problemy zdrowotne?</label>
+        <div class="radio-group">
+          <label><input type="radio" name="pain" value="yes"> Tak</label>
+          <label><input type="radio" name="pain" value="no"> Nie</label>
+        </div>
+      </div>
+
+      <!-- QUESTION 3 -->
+      <div class="modal-question">
+        <label>3. Twój email:</label>
+        <input type="email" name="email" placeholder="twoj@email.com" required>
+      </div>
+
+      <!-- SUBMIT -->
+      <button type="submit" class="btn btn-primary btn-large">
+        Dalej → (Pełny Formularz)
+      </button>
+      
+      <p class="modal-disclaimer">Będzie Ci wysłany link do szczegółowego formularza. Wszystkie dane są poufne.</p>
+    </form>
+
+    <!-- SUCCESS STATE -->
+    <div id="intake-success" style="display:none; text-align:center;">
+      <h3>✅ Świetnie!</h3>
+      <p>Email potwierdzający został wysłany.<br>Sprawdź skrzynkę (w tym SPAM).</p>
+      <p><strong>Odpowiemy w ciągu 2 godzin.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- SCRIPT: Modal & Form Handler -->
+<script>
+function openModal() {
+  document.getElementById('modal-intake').style.display = 'flex';
+}
+
+function closeModal() {
+  document.getElementById('modal-intake').style.display = 'none';
+}
+
+function handleIntakeSubmit(event) {
+  event.preventDefault();
+  
+  const goal = document.querySelector('input[name="goal"]:checked').value;
+  const pain = document.querySelector('input[name="pain"]:checked').value;
+  const email = document.querySelector('input[name="email"]').value;
+  
+  // Log to console (w realu: POST to backend)
+  console.log('LEAD:', { goal, pain, email });
+  
+  // Send to Google Forms
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('goal', goal);
+  formData.append('pain', pain);
+  
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLScMH0fF5ZID6zY5PeC5Wp7xXjTf1VHND4Pert7cbUI7pRWEIQ/formResponse', {
+    method: 'POST',
+    body: formData,
+    mode: 'no-cors'
+  }).then(() => {
+    // Show success
+    document.getElementById('intake-form').style.display = 'none';
+    document.getElementById('intake-success').style.display = 'block';
+    
+    // Close modal after 3 seconds
+    setTimeout(() => closeModal(), 3000);
+  });
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+  const modal = document.getElementById('modal-intake');
+  if (event.target === modal) {
+    closeModal();
+  }
+}
+</script>
+```
+
+
+}
+```
+
+<!-- NAG BAR: Urgency --> <div class="nag-bar"> <span>⏰ OSTATNIE 2 SLOTY NA GRUDZIEŃ</span> <a href="javascript:openModal()" class="nag-cta">Zarezerwuj Teraz →</a> </div>
 <!-- ===== NAGŁÓWEK / HEADER ===== -->
 <header class="header">
     <nav class="navbar">
@@ -44,13 +149,21 @@
 </header>
 
 <!-- ===== HERO SECTION ===== -->
-<section class="hero" id="home">
-    <div class="hero-content">
-        <h1 class="hero-title">Twoja Droga do Zdrowia i Siły</h1>
-        <p class="hero-subtitle">Profesjonalny trening personalny w sercu lasu. Rehabilitacja, fizjoterapia, trening medyczny.</p>
-        <a href="#contact" class="btn btn-primary btn-large">Umów Darmową Konsultację</a>
-    </div>
-    <div class="hero-image" style="background-image: url('damian-hero2.jpg');"></div>
+<!-- CTA Buttons -->
+<div class="hero-cta-group">
+  <a href="#intake-form" class="btn btn-primary btn-large">
+    🎯 Zarezerwuj Ocenę (Gratis 15 min)
+  </a>
+  <p class="micro-text">2 sloty dostępne -  Odpowiadam w 2h -  Bez zobowiązań</p>
+</div>
+
+<!-- Credibility Badges -->
+<div class="credibility-badges">
+  <span class="badge-text">Współpraca z:</span>
+  <span class="badge">WIML</span>
+  <span class="badge">WAT</span>
+  <span class="badge">Instytut Sportu</span>
+</div>
 </section>
 
 <!-- ===== SEKCJA STATYSTYK ===== -->
